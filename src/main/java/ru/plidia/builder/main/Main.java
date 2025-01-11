@@ -14,7 +14,7 @@ public class Main {
             userList.add(null);
         }
         userList = controller.executeGenerateData(userList.stream());
-        userList = controller.executeSortList(userList.stream());
-        controller.executePrintSortList(userList.stream());
+        controller.executePrintSortList(controller.executeSortList(userList.stream()).stream());
+        controller.executePrintEvenIdList(controller.executeGetEvenId(userList.stream()));
     }
 }

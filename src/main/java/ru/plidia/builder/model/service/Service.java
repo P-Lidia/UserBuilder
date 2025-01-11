@@ -41,4 +41,10 @@ public class Service {
                 .collect(Collectors.toList());
         return userList;
     }
+
+    public List<User> getEvenId(Stream<User> userStream) {
+        List<User> userList = userStream.filter(user -> user.getId() % 2 == 0)
+                .collect(Collectors.toList());
+        return userList;
+    }
 }

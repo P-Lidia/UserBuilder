@@ -22,4 +22,12 @@ public class Controller {
     public void executePrintSortList(Stream<User> userStream) {
         view.printSortList(userStream);
     }
+
+    public List<User> executeGetEvenId(Stream<User> userStream) {
+        return service.getEvenId(userStream);
+    }
+
+    public void executePrintEvenIdList(List<User> userList) {
+        view.printEvenIdList(userList);
+    }
 }
