@@ -2,6 +2,7 @@ package ru.plidia.builder.model.service;
 
 import ru.plidia.builder.model.entity.User;
 
+import java.util.Comparator;
 import java.util.List;
 import java.util.Random;
 import java.util.concurrent.atomic.AtomicLong;
@@ -32,6 +33,12 @@ public class Service {
                     .setAge((int) (random() * 100))
                     .build();
         }).collect(Collectors.toList());
+        return userList;
+    }
+
+    public List<User> sortList(Stream<User> userStream) {
+        List<User> userList = userStream.sorted(Comparator.comparing(User::getLogin))
+                .collect(Collectors.toList());
         return userList;
     }
 }
