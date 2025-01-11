@@ -1,6 +1,6 @@
 package ru.plidia.builder.model.entity;
 
-public class User {
+public class User implements Comparable<User> {
     Long id;
     String login;
     StringBuilder password;
@@ -57,6 +57,11 @@ public class User {
         public User build() {
             return User.this;
         }
+    }
+
+    @Override
+    public int compareTo(User o) {
+        return o.login.compareTo(this.login);
     }
 
     public String toString() {
