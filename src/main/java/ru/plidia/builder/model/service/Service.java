@@ -47,4 +47,8 @@ public class Service {
                 .collect(Collectors.toList());
         return userList;
     }
+
+    public boolean checkSameIdAndAge(Stream<User> userStream) {
+        return userStream.anyMatch(u -> u.getId() == u.getAge());
+    }
 }
