@@ -30,4 +30,12 @@ public class Controller {
     public void executePrintEvenIdList(List<User> userList) {
         view.printEvenIdList(userList);
     }
+
+    public boolean executeCheckSameIdAndAge(Stream<User> userStream) {
+        return service.checkSameIdAndAge(userStream);
+    }
+
+    public void executePrintSameIdAndAgeList(Stream<User> userStream) {
+        view.printSameIdAndAgeList(userStream);
+    }
 }
