@@ -19,7 +19,7 @@ public class Service {
     public List<User> generateData(Stream<User> userStream) {
         List<User> userList = userStream.map(user -> {
             return user = User.newUserBuilder()
-                    .setId(nextId.incrementAndGet())  // ПОПРОБОВАТЬ ЗДЕСЬ НЬЮ АТОМИК
+                    .setId(nextId.incrementAndGet())
                     .setLogin(IntStream.range(0, chars.length())
                             .limit((int) (5 + Math.random() * 10))
                             .map(i -> new Random().nextInt(chars.length()))
