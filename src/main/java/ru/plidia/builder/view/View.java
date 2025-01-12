@@ -13,4 +13,8 @@ public class View {
     public void printEvenIdList(List<User> userList) {
         userList.forEach(System.out::println);
     }
+
+    public void printSameIdAndAgeList(Stream<User> userStream) {
+        userStream.forEach(System.out::println);
+    }
 }
