@@ -19,7 +19,7 @@ public class Main {
         userList = controller.executeGetEvenId(userList.stream());
         controller.executePrintEvenIdList(userList);
         try {
-            userList.get(0).check(controller.executeCheckSameIdAndAge(userList.stream()));
+            userList.get(0).checkBoolean(controller.executeCheckSameIdAndAge(userList.stream()));
             controller.executePrintSameIdAndAgeList(userList.stream().filter(u -> u.getId() == u.getAge()));
         } catch (NullSameIdAndAgeException e){
             System.out.println(e.getMessage());;

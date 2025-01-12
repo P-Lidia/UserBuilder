@@ -72,9 +72,9 @@ public class User implements Comparable<User> {
                 .append(", password=").append(password).append(", age=").append(age).toString();
     }
 
-    public void check(boolean any) throws NullSameIdAndAgeException {
+    public void checkBoolean(boolean any) throws NullSameIdAndAgeException {
         if (any == false) {
-            throw new NullSameIdAndAgeException("Нет совпадений");
+            throw new NullSameIdAndAgeException("\nНет совпадений");
         }
     }
 }
