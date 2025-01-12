@@ -21,8 +21,8 @@ public class Main {
         try {
             userList.get(0).checkBoolean(controller.executeCheckSameIdAndAge(userList.stream()));
             controller.executePrintSameIdAndAgeList(userList.stream().filter(u -> u.getId() == u.getAge()));
-        } catch (NullSameIdAndAgeException e){
-            System.out.println(e.getMessage());;
+        } catch (NullSameIdAndAgeException e) {
+            System.out.println(e.getMessage());
         }
     }
 }
