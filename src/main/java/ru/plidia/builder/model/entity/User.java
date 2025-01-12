@@ -68,13 +68,14 @@ public class User implements Comparable<User> {
 
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        return sb.append("\nid=").append(id).append(", login=").append(login)
+        return sb.append("id=").append(id).append(", login=").append(login)
                 .append(", password=").append(password).append(", age=").append(age).toString();
     }
 
     public void checkBoolean(boolean any) throws NullSameIdAndAgeException {
         if (any == false) {
-            throw new NullSameIdAndAgeException("\nНет совпадений");
+            System.out.println("\nUsers with the same id and age: ");
+            throw new NullSameIdAndAgeException("No matches");
         }
     }
 }
