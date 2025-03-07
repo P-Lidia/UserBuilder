@@ -15,12 +15,15 @@ public class Main {
             userList.add(null);
         }
         userList = controller.executeGenerateData(userList.stream());
-        controller.executePrintSortList(controller.executeSortList(userList.stream()).stream());
+        userList = controller.executeSortList(userList.stream());
+        controller.executePrintSortList(userList.stream());
         userList = controller.executeGetEvenId(userList.stream());
         controller.executePrintEvenIdList(userList);
         try {
-            userList.get(0).checkBoolean(controller.executeCheckSameIdAndAge(userList.stream()));
-            controller.executePrintSameIdAndAgeList(userList.stream().filter(u -> u.getId() == u.getAge()));
+            if (userList.get(0).checkBoolean(userList)) {
+                userList = controller.executeCheckSameIdAndAge(userList.stream());
+                controller.executePrintSameIdAndAgeList(userList.stream());
+            }
         } catch (NullSameIdAndAgeException e) {
             System.out.println(e.getMessage());
         }

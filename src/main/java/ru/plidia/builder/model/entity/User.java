@@ -2,6 +2,8 @@ package ru.plidia.builder.model.entity;
 
 import ru.plidia.builder.exception.NullSameIdAndAgeException;
 
+import java.util.List;
+
 public class User implements Comparable<User> {
     private Long id;
     private String login;
@@ -68,14 +70,22 @@ public class User implements Comparable<User> {
 
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        return sb.append("id=").append(id).append(", login=").append(login)
-                .append(", password=").append(password).append(", age=").append(age).toString();
+        return sb.append("id=")
+                .append(id)
+                .append(", login=")
+                .append(login)
+                .append(", password=")
+                .append(password)
+                .append(", age=")
+                .append(age)
+                .toString();
     }
 
-    public void checkBoolean(boolean any) throws NullSameIdAndAgeException {
-        if (any == false) {
-            System.out.println("\nUsers with the same id and age: ");
-            throw new NullSameIdAndAgeException("No matches");
+    public boolean checkBoolean(List<User> userList) throws NullSameIdAndAgeException {
+        if (userList.stream().anyMatch(u -> u.getId() == u.getAge())) {
+            return  true;
+        } else {
+            throw new NullSameIdAndAgeException("\nUsers with the same id and age: no matches");
         }
     }
 }

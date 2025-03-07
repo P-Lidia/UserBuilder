@@ -21,7 +21,7 @@ public class Service {
     }
 
     public List<User> generateData(Stream<User> userStream) {
-        List<User> userList = userStream.map(user -> {
+        return userStream.map(user -> {
             return user = User.newUserBuilder()
                     .setId(nextId.incrementAndGet())
                     .setLogin(IntStream.range(0, chars.length())
@@ -37,22 +37,17 @@ public class Service {
                     .setAge((int) (random() * 100))
                     .build();
         }).collect(Collectors.toList());
-        return userList;
     }
 
     public List<User> sortList(Stream<User> userStream) {
-        List<User> userList = userStream.sorted(Comparator.comparing(User::getLogin))
-                .collect(Collectors.toList());
-        return userList;
+        return userStream.sorted(Comparator.comparing(User::getLogin)).collect(Collectors.toList());
     }
 
     public List<User> getEvenId(Stream<User> userStream) {
-        List<User> userList = userStream.filter(user -> user.getId() % 2 == 0)
-                .collect(Collectors.toList());
-        return userList;
+        return userStream.filter(user -> user.getId() % 2 == 0).collect(Collectors.toList());
     }
 
-    public boolean checkSameIdAndAge(Stream<User> userStream) {
-        return userStream.anyMatch(u -> u.getId() == u.getAge());
+    public List<User> checkSameIdAndAge(Stream<User> userStream) {
+        return userStream.filter(u -> u.getId() == u.getAge()).collect(Collectors.toList());
     }
 }

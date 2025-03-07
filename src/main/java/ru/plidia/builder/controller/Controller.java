@@ -1,5 +1,6 @@
 package ru.plidia.builder.controller;
 
+import ru.plidia.builder.exception.NullSameIdAndAgeException;
 import ru.plidia.builder.model.entity.User;
 import ru.plidia.builder.model.service.Service;
 import ru.plidia.builder.view.View;
@@ -36,7 +37,7 @@ public class Controller {
         view.printEvenIdList(userList);
     }
 
-    public boolean executeCheckSameIdAndAge(Stream<User> userStream) {
+    public List executeCheckSameIdAndAge(Stream<User> userStream) {
         return service.checkSameIdAndAge(userStream);
     }
 
