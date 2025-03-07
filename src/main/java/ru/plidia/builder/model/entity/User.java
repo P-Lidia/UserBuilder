@@ -3,10 +3,10 @@ package ru.plidia.builder.model.entity;
 import ru.plidia.builder.exception.NullSameIdAndAgeException;
 
 public class User implements Comparable<User> {
-    Long id;
-    String login;
-    StringBuilder password;
-    Integer age;
+    private Long id;
+    private String login;
+    private StringBuilder password;
+    private Integer age;
 
     private User() {
     }

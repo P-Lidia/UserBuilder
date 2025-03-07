@@ -13,8 +13,12 @@ import java.util.stream.Stream;
 import static java.lang.Math.random;
 
 public class Service {
-    static AtomicLong nextId = new AtomicLong();
-    final String chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+    private static AtomicLong nextId = new AtomicLong();
+    private final String chars;
+
+    public Service() {
+        this.chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+    }
 
     public List<User> generateData(Stream<User> userStream) {
         List<User> userList = userStream.map(user -> {

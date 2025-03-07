@@ -8,8 +8,13 @@ import java.util.List;
 import java.util.stream.Stream;
 
 public class Controller {
-    Service service = new Service();
-    View view = new View();
+    private final Service service;
+    private final View view;
+
+    public Controller() {
+        this.service = new Service();
+        this.view = new View();
+    }
 
     public List<User> executeGenerateData(Stream<User> userStream) {
         return service.generateData(userStream);
